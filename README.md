@@ -69,6 +69,16 @@ Sample test output:
 ```
 # Paste your pytest output here
 ```
+Today's Schedule
+----------------
+07:30 - Luna: Feed Luna (daily)
+08:00 - Max: Morning walk (daily)
+08:00 - Luna: Clean litter box (daily)
+14:00 - Max: Vet appointment (one-time)
+
+Conflict Warnings
+-----------------
+Conflict: Luna's task 'Clean litter box' is at the same time as Max's task 'Morning walk' at 08:00.
 
 ## 📐 Smarter Scheduling
 
