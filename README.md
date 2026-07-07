@@ -46,29 +46,6 @@ pip install -r requirements.txt
 
 Paste a sample of your app's CLI or Streamlit output here so a reader can see what a generated plan looks like:
 
-```
-# e.g.:
-# Daily plan for Biscuit (Golden Retriever):
-#   08:00 — Morning walk (30 min) [priority: high]
-#   09:00 — Feeding (10 min) [priority: high]
-#   ...
-```
-
-## 🧪 Testing PawPal+
-
-```bash
-# Run the full test suite:
-pytest
-
-# Run with coverage:
-pytest --cov
-```
-
-Sample test output:
-
-```
-# Paste your pytest output here
-```
 Today's Schedule
 ----------------
 07:30 - Luna: Feed Luna (daily)
@@ -80,25 +57,71 @@ Conflict Warnings
 -----------------
 Conflict: Luna's task 'Clean litter box' is at the same time as Max's task 'Morning walk' at 08:00.
 
+```
+# e.g.:
+# Daily plan for Biscuit (Golden Retriever):
+#   08:00 — Morning walk (30 min) [priority: high]
+#   09:00 — Feeding (10 min) [priority: high]
+#   ...
+```
+
+## 🧪 Testing PawPal+
+
+```Run the test suite with:
+
+```bash
+python3 -m pytest
+```
+
+The tests verify:
+
+- Marking a task as complete
+- Adding tasks to a pet
+- Sorting tasks by time
+- Creating recurring daily tasks
+- Detecting scheduling conflicts
+```
+
+Sample test output:
+
+```
+text
+================================= test session starts ==================================
+platform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jairogonzales/ai110-module2show-pawpal-starter
+collected 5 items
+
+tests/test_pawpal.py .....                                                       [100%]
+
+================================== 5 passed in 0.01s ===================================
+```
+
+**Confidence Level:** ⭐⭐⭐⭐☆
+
+I am confident that the scheduler works correctly because all of the automated tests passed successfully. If I had more time, I would add more tests for edge cases like overlapping task durations and invalid time formats.   
+```
+
+
 ## 📐 Smarter Scheduling
 
 > Fill in once you've implemented scheduling logic.
 
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
+| Task sorting | `Scheduler.sort_by_time()` | Sorts all tasks from earliest to latest |
+| Filtering | `filter_by_pet()`, `filter_by_status()` | Filters tasks by pet name or completion status |
+| Conflict handling | `detect_conflicts()` | Warns when two tasks are scheduled for the same time |
+| Recurring tasks | `mark_task_complete()`, `create_next_occurrence()` | Automatically creates the next daily or weekly task after completion |
 
 ## 📸 Demo Walkthrough
 
 Describe your app in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Start the application and create an owner.
+2. Add one or more pets to the owner.
+3. Create pet care tasks with different times and recurrence options.
+4. View the daily schedule, which is automatically sorted by time.
+5. If two tasks are scheduled for the same time, the scheduler displays a conflict warning.
+6. Mark a recurring task as complete to automatically generate the next daily or weekly task.
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->
